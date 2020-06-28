@@ -1,0 +1,10 @@
+/*
+native css variables are great, They also allow for easy theming in runtime
+This is why i used them over scss variables for colors
+*/
+
+:root {
+  --dark: #000;
+  --light: #FFF;
+  --alert: #fa3c4c;
+}
