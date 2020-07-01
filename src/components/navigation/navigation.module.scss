@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+.link {
+  color: var(--dark);
+  text-decoration: none;
+  line-height: $sectionHeight;
+  font-weight: bold;
+  margin: 0 1em;
+
+  &.active {
+    // TODO
+  }
+}

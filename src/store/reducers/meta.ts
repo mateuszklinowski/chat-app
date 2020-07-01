@@ -1,5 +1,5 @@
 import { Reducer } from 'redux'
-import { Action, Lang, MetaState, State, Theme } from '../interfaces'
+import { Action, Lang, MetaState, Theme } from '../interfaces'
 
 const fakeServiceToGenerateNames = (): string => {
     const names = [

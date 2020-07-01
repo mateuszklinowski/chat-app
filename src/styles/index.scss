@@ -1,7 +1,70 @@
-@import "variables";
+@import 'variables';
+@import 'mixins';
 
-$content-width: 1000px;
+// I enjoy styling with CSS // SCSS I think is should be a default option for project.
+// As CSS modules are optional feature I added them to show familiarity with both it and other CSS in JS tools.
+// anyway modern css can be quite powerful :D
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color: var(--dark);
+    font-size: $base-font;
+    font-family: Consolas, serif;
+}
 
 body {
-  margin: 0;
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: $content-width;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+
+    .section + .section {
+        margin-top: 0.5em;
+    }
+}
+
+.section {
+    flex: 0 0 40px;
+}
+
+.section--main {
+    flex: 1 0 auto;
+}
+
+.box {
+    @include border-box;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+.row + .row {
+    margin-top: 0.5em;
 }

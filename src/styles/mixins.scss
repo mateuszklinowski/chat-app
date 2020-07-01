@@ -1,0 +1,42 @@
+@import 'variables';
+
+$box-X-padding: 1em;
+$box-Y-padding: 0.5em;
+
+@mixin border-box {
+    border: $border-width solid var(--dark);
+    padding: $box-Y-padding $box-X-padding;
+}
+
+@mixin button {
+    background: transparent;
+    border: none;
+}
+
+@mixin messagePointer($invert: 1) {
+    &:before {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        top: -11px;
+        background: var(--light);
+        width: 9px;
+        height: 11px;
+
+        @if ($invert == 1) {
+            left: 28px;
+            border-left: 2px solid var(--dark);
+        } @else {
+            right: 28px;
+            border-right: 2px solid var(--dark);
+        }
+
+        background: linear-gradient(
+            45deg * $invert,
+            rgba(255, 255, 255, 1) 40%,
+            rgba(0, 0, 0, 1) 40%,
+            rgba(0, 0, 0, 1) 54%,
+            rgba(255, 255, 255, 1) 54%
+        );
+    }
+}

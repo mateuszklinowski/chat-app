@@ -1,0 +1,43 @@
+@import 'src/styles/mixins';
+
+.messagesWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100%;
+}
+
+.strangerMessage {
+    display: flex;
+    justify-content: flex-start;
+    .message {
+        @include messagePointer(1);
+    }
+}
+
+.selfMessage {
+    display: flex;
+    justify-content: flex-end;
+
+    .message {
+        margin-left: auto;
+        @include messagePointer(-1);
+    }
+}
+
+.messageWrapper {
+}
+
+.messageMeta {
+    font-size: 0.8em;
+    padding: 0 40px;
+}
+
+.message {
+    @include border-box();
+    line-height: 20px;
+    border-radius: calc(20px + 1em);
+    max-width: 80%;
+    display: block;
+    position: relative;
+}
