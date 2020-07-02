@@ -33,10 +33,10 @@ $box-Y-padding: 0.5em;
 
         background: linear-gradient(
             45deg * $invert,
-            rgba(255, 255, 255, 1) 40%,
-            rgba(0, 0, 0, 1) 40%,
-            rgba(0, 0, 0, 1) 54%,
-            rgba(255, 255, 255, 1) 54%
+            var(--light) 40%,
+            var(--dark) 40%,
+            var(--dark) 54%,
+            var(--light) 54%
         );
     }
 }

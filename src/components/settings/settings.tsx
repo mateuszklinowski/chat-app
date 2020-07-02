@@ -11,6 +11,8 @@ import {
 import { Select } from '../controls/select'
 import { SettingsState } from '../../store/interfaces'
 import { ClockDisplay, CtrlEnter, Lang, Theme } from '../../const'
+import { useIntl } from '../../utils/useIntl/useIntl.hook'
+import { translateOption } from '../../utils/translateOption'
 
 export type SettingsProps = {
     onReset(): void
@@ -27,6 +29,7 @@ export type SettingsProps = {
 
 export const Settings: React.FunctionComponent<SettingsProps> = (props) => {
     const { onReset, onSettingsChange, ...settings } = props
+    const { translate } = useIntl()
 
     const handleSettingsChange = <K extends keyof SettingsState>(key: K) => (
         value: SettingsState[K]
@@ -40,32 +43,34 @@ export const Settings: React.FunctionComponent<SettingsProps> = (props) => {
                 <div className="row">
                     <Input
                         name="userName"
-                        label="User name"
+                        label={translate('SETTINGS.USER')}
                         onChange={handleSettingsChange('name')} // TODO debounce or trigger on blur or exit
                         value={settings.name}
                     />
                 </div>
                 <div className="row">
                     <Radio
-                        label="Interface color"
+                        label={translate('SETTINGS.THEME')}
                         name="interfaceColor"
                         onChange={handleSettingsChange('theme')}
-                        options={interfaceOptions}
+                        options={interfaceOptions.map(
+                            translateOption(translate)
+                        )}
                         value={settings.theme}
                     />
                 </div>
                 <div className="row">
                     <Radio
-                        label="Clock display"
+                        label={translate('SETTINGS.CLOCK')}
                         name="clockDisplay"
                         onChange={handleSettingsChange('clockDisplay')}
-                        options={clockOptions}
+                        options={clockOptions.map(translateOption(translate))}
                         value={settings.clockDisplay}
                     />
                 </div>
                 <div className="row">
                     <Radio
-                        label="Send message on CTRL + ENTER"
+                        label={translate('SETTINGS.CTRL_ENTER')}
                         name="ctrlEnter"
                         onChange={handleSettingsChange('ctrlEnter')}
                         options={ctrlEnterOptions}
@@ -74,15 +79,16 @@ export const Settings: React.FunctionComponent<SettingsProps> = (props) => {
                 </div>
                 <div className="row">
                     <Select
-                        label="Language"
+                        label={translate('SETTINGS.LANGUAGE')}
                         options={langOptions}
                         name="lang"
+                        value={settings.lang}
                         onChange={handleSettingsChange('lang')}
                     />
                 </div>
             </div>
             <div className="section">
-                <Button onClick={onReset}>Reset to defaults</Button>
+                <Button onClick={onReset}>{translate('SETTINGS.RESET')}</Button>
             </div>
         </>
     )

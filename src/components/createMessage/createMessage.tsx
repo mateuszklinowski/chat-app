@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Input } from '../controls/input'
-import send from '../../assets/send.svg'
+import Send from '../../assets/send.svg'
 import styles from './createMessage.module.scss'
 import { CtrlEnter } from '../../const'
 
@@ -42,11 +42,11 @@ export const CreateMessage: React.FunctionComponent<CreateMessageProps> = (
                 <Input
                     name="newMessage"
                     onChange={setMessage}
-                    placeholder="kappa"
+                    placeholder=""
                     value={message}
                 />
                 <button className={styles.sendBtn} onClick={handleSubmit}>
-                    <img src={send} alt="kappa" />
+                    <Send />
                 </button>
             </div>
         </section>
