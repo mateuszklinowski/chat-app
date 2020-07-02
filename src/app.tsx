@@ -6,6 +6,7 @@ import { ConnectedCreateMessage } from './components/createMessage/connectedCrea
 import { ConnectedSettings } from './components/settings/connectedSettings'
 import { Route, Switch } from 'react-router'
 import { Navigation } from './components/navigation/navigation'
+import { Path } from './const'
 
 export const App: React.FunctionComponent = () => {
     return (
@@ -13,12 +14,12 @@ export const App: React.FunctionComponent = () => {
             <div className="container">
                 <Navigation />
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path={Path.Home}>
                         {/*This might be composed into pages, but as app is small there was no need*/}
                         <ConnectedMessages />
                         <ConnectedCreateMessage />
                     </Route>
-                    <Route exact path="/settings">
+                    <Route exact path={Path.Settings}>
                         <ConnectedSettings />
                     </Route>
                 </Switch>

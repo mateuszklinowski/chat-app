@@ -1,10 +1,15 @@
-import { connect } from 'react-redux'
+import { connect, MapStateToProps } from 'react-redux'
 import { State } from '../../store/interfaces'
 import { Messages, MessagesProps } from './messages'
 
-const mapStateToProps = (state: State): MessagesProps => {
+const mapStateToProps: MapStateToProps<
+    MessagesProps,
+    Record<never, unknown>,
+    State
+> = ({ chat, settings }): MessagesProps => {
     return {
-        messages: state.chat.messages,
+        messages: chat.messages,
+        clock: settings.clockDisplay,
     }
 }
 

@@ -9,17 +9,29 @@ import {
     langOptions,
 } from '../controls/const'
 import { Select } from '../controls/select'
-import { noop } from '../../shared/noop'
+import { SettingsState } from '../../store/interfaces'
+import { ClockDisplay, CtrlEnter, Lang, Theme } from '../../const'
 
-type SettingsProps = any // TODO
+export type SettingsProps = {
+    onReset(): void
+    onSettingsChange: <K extends keyof SettingsState>(
+        key: K,
+        value: SettingsState[K]
+    ) => void
+    name: string
+    theme: Theme
+    clockDisplay: ClockDisplay
+    ctrlEnter: CtrlEnter
+    lang: Lang
+}
 
-export const Settings: React.FunctionComponent<SettingsProps> = () => {
-    const handleReset = () => {
-        // TODO
-    }
+export const Settings: React.FunctionComponent<SettingsProps> = (props) => {
+    const { onReset, onSettingsChange, ...settings } = props
 
-    const handleUserNameChange = () => {
-        // TODO
+    const handleSettingsChange = <K extends keyof SettingsState>(key: K) => (
+        value: SettingsState[K]
+    ) => {
+        onSettingsChange(key, value)
     }
 
     return (
@@ -29,31 +41,35 @@ export const Settings: React.FunctionComponent<SettingsProps> = () => {
                     <Input
                         name="userName"
                         label="User name"
-                        onChange={handleUserNameChange}
+                        onChange={handleSettingsChange('name')} // TODO debounce or trigger on blur or exit
+                        value={settings.name}
                     />
                 </div>
                 <div className="row">
                     <Radio
                         label="Interface color"
                         name="interfaceColor"
-                        onChange={handleUserNameChange}
+                        onChange={handleSettingsChange('theme')}
                         options={interfaceOptions}
+                        value={settings.theme}
                     />
                 </div>
                 <div className="row">
                     <Radio
                         label="Clock display"
                         name="clockDisplay"
-                        onChange={handleUserNameChange}
+                        onChange={handleSettingsChange('clockDisplay')}
                         options={clockOptions}
+                        value={settings.clockDisplay}
                     />
                 </div>
                 <div className="row">
                     <Radio
                         label="Send message on CTRL + ENTER"
                         name="ctrlEnter"
-                        onChange={handleUserNameChange}
+                        onChange={handleSettingsChange('ctrlEnter')}
                         options={ctrlEnterOptions}
+                        value={settings.ctrlEnter}
                     />
                 </div>
                 <div className="row">
@@ -61,12 +77,12 @@ export const Settings: React.FunctionComponent<SettingsProps> = () => {
                         label="Language"
                         options={langOptions}
                         name="lang"
-                        onChange={noop}
+                        onChange={handleSettingsChange('lang')}
                     />
                 </div>
             </div>
             <div className="section">
-                <Button onClick={handleReset}>Reset to defaults</Button>
+                <Button onClick={onReset}>Reset to defaults</Button>
             </div>
         </>
     )

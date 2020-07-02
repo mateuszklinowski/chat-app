@@ -1,3 +1,5 @@
+import { ClockDisplay, CtrlEnter, Lang, Theme } from '../const'
+
 export type Message = {
     timestamp: number
     senderId: string
@@ -10,28 +12,26 @@ export type ChatState = {
     messages: Message[]
 }
 
-export enum Theme {
-    Light = 'light',
-    Dark = 'dark',
-}
-export enum Lang {
-    En = 'en',
-    Pl = 'pl',
-}
-
-export type MetaState = {
+export type SettingsState = {
     name: string
     theme: Theme
-    ctrlEnter: boolean
+    clockDisplay: ClockDisplay
+    ctrlEnter: CtrlEnter
     lang: Lang
+}
+
+export interface MetaState {
+    userId: string | undefined
+    isLoading: boolean
 }
 
 export type State = {
     chat: ChatState
+    settings: SettingsState
     meta: MetaState
 }
 
-export type Action<P = unknown> = {
+export interface Action<P = unknown> {
     type: string
     payload?: P
 }

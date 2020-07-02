@@ -1,29 +1,10 @@
 import { Option } from './radio'
 import { SelectOption } from './select'
-
-enum InterfaceColor {
-    Light = 'light',
-    Dark = 'dark',
-}
-
-enum ClockDisplay {
-    Hours12 = '12hours',
-    Hours24 = '24hours',
-}
-
-enum EnterCtrl {
-    On = 'on',
-    Off = 'off',
-}
-
-enum Langs {
-    En = 'en',
-    Pl = 'pl',
-}
+import { ClockDisplay, CtrlEnter, Lang, Theme } from '../../const'
 
 export const interfaceOptions: Option[] = [
-    { label: 'Light', value: InterfaceColor.Light, id: InterfaceColor.Light },
-    { label: 'Dark', value: InterfaceColor.Dark, id: InterfaceColor.Dark },
+    { label: 'Light', value: Theme.Light, id: Theme.Light },
+    { label: 'Dark', value: Theme.Dark, id: Theme.Dark },
 ]
 
 export const clockOptions: Option[] = [
@@ -40,11 +21,11 @@ export const clockOptions: Option[] = [
 ]
 
 export const ctrlEnterOptions: Option[] = [
-    { label: 'On', value: EnterCtrl.On, id: EnterCtrl.On },
-    { label: 'Off', value: EnterCtrl.Off, id: EnterCtrl.Off },
+    { label: 'On', value: CtrlEnter.On, id: CtrlEnter.On },
+    { label: 'Off', value: CtrlEnter.Off, id: CtrlEnter.Off },
 ]
 
 export const langOptions: SelectOption[] = [
-    { value: Langs.En, label: 'English' },
-    { value: Langs.Pl, label: 'Polish' },
+    { value: Lang.En, label: 'English' },
+    { value: Lang.Pl, label: 'Polish' },
 ]

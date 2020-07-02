@@ -1,13 +1,14 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
-.link {
-  color: var(--dark);
-  text-decoration: none;
-  line-height: $sectionHeight;
-  font-weight: bold;
-  margin: 0 1em;
-
-  &.active {
-    // TODO
-  }
+.nav {
+    a {
+        color: var(--dark);
+        text-decoration: none;
+        line-height: $sectionHeight;
+        font-weight: bold;
+        margin: 0 1em;
+    }
+}
+.active {
+    border-bottom: 2px solid var(--dark);
 }
