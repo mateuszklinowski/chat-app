@@ -40,7 +40,7 @@ const config: webpack.Configuration = {
             {
                 test: /\.svg$/,
                 use: ['@svgr/webpack'],
-            },
+            }
         ],
     },
     plugins: [htmlPlugin],

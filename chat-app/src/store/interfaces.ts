@@ -22,7 +22,6 @@ export type SettingsState = {
 
 export interface MetaState {
     userId: string | undefined
-    isLoading: boolean
 }
 
 export type State = {

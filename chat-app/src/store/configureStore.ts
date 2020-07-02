@@ -2,10 +2,11 @@ import { applyMiddleware, createStore, Store } from 'redux'
 import { rootReducer } from './reducers'
 import { Action, State } from './interfaces'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { themeMiddleware } from './middlewares/themeMiddleware'
+import { themeMiddleware } from './middlewares/theme.middleware'
+import { sendMessageMiddleware } from './middlewares/sendMessage.middleware'
 
 export const configureStore = (): Store<State> => {
-    const middlewares = [themeMiddleware]
+    const middlewares = [themeMiddleware, sendMessageMiddleware]
     const middlewareEnhancer = applyMiddleware(...middlewares)
     const composedEnhancers = composeWithDevTools(middlewareEnhancer)
 

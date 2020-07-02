@@ -6,8 +6,9 @@ const mapStateToProps: MapStateToProps<
     MessagesProps,
     Record<never, unknown>,
     State
-> = ({ chat, settings }): MessagesProps => {
+> = ({ chat, settings, meta }): MessagesProps => {
     return {
+        userId: meta.userId,
         messages: chat.messages,
         clock: settings.clockDisplay,
     }

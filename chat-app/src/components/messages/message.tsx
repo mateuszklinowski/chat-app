@@ -27,8 +27,7 @@ export const MessageComponent: React.FunctionComponent<MessageProps> = (
     const meta = `${sender}${timestampToTime(clock)(timestamp)}`
 
     // Usually classNames lib take care of such things, but library for 1 use ...
-    const wrapperStyle =
-        senderName === 'kappa1' ? styles.selfMessage : styles.strangerMessage
+    const wrapperStyle = fromSelf ? styles.selfMessage : styles.strangerMessage
     return (
         <div className="row">
             <div className={wrapperStyle}>
