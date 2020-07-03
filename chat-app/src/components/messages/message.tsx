@@ -37,7 +37,7 @@ export const MessageComponent: React.FunctionComponent<MessageProps> = (
     return (
         <div className="row">
             <div className={wrapperStyle}>
-                <div>
+                <div className={styles.messageBox}>
                     <div className={styles.messageMeta}>{meta}</div>
                     <div className={styles.message}>{enchant(content)}</div>
                     <YouTubeFrame url={youTubeLink} />
@@ -53,9 +53,9 @@ const enchant = (text: string) => {
     const subStrings = text
         .split(urlMatcher)
         .filter((string) => string !== 'https')
-        .map((baseText) => {
+        .map((baseText, index) => {
             if (!urlMatcher.test(baseText)) {
-                return baseText ? <Emoji text={baseText} /> : baseText
+                return <Emoji text={baseText} key={index} />
             }
 
             return (

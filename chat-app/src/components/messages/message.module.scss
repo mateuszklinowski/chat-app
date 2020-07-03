@@ -7,11 +7,24 @@
     min-height: 100%;
 }
 
+.messageBox {
+    display: flex;
+    flex-wrap: wrap;
+
+    iframe {
+        margin: 10px auto;
+    }
+}
+
 .strangerMessage {
     display: flex;
     justify-content: flex-start;
     .message {
         @include messagePointer(1);
+    }
+
+    .messageMeta {
+        text-align: left;
     }
 }
 
@@ -23,6 +36,10 @@
         margin-left: auto;
         @include messagePointer(-1);
     }
+
+    .messageMeta {
+        text-align: right;
+    }
 }
 
 .messageWrapper {
@@ -31,6 +48,7 @@
 .messageMeta {
     font-size: 0.8em;
     padding: 0 40px;
+    flex: 1 0 100%;
 }
 
 .message {

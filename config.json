@@ -1,4 +1,5 @@
 {
   "port": 3000,
-  "api": "http://localhost"
+  "api": "http://localhost",
+  "chat-entry": "chat-app/dist/index.html"
 }
