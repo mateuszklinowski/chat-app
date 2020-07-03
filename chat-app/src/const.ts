@@ -34,5 +34,9 @@ export enum ApiActions {
     SendMessage = 'message',
 }
 
-//export const SOCKET_ENDPOINT = `${config.api}/${config.port}`
-export const SOCKET_ENDPOINT = `:3000`
+export enum PageTitle {
+    Normal = 'Chat-app',
+    Alarm = 'New message!',
+}
+
+export const SOCKET_ENDPOINT = `${config.api}:${config.port}`

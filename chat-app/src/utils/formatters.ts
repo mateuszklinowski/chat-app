@@ -1,4 +1,4 @@
-export const formatAMAP = (timestamp: number) => {
+export const formatAMAP = (timestamp: number): string => {
     const date = new Date(timestamp)
     let hours = date.getHours()
     let minutes: string | number = date.getMinutes()
@@ -9,7 +9,7 @@ export const formatAMAP = (timestamp: number) => {
     return hours + ':' + minutes + ampm
 }
 
-export const format24 = (timestamp: number) => {
+export const format24 = (timestamp: number): string => {
     const date = new Date(timestamp)
     const hours = date.getHours()
     let minutes: string | number = date.getMinutes()

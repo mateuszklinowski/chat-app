@@ -30,7 +30,7 @@ const themes = {
     },
 }
 
-export const themeMiddleware: Middleware = (store) => (next) => (action) => {
+export const themeMiddleware: Middleware = () => (next) => (action) => {
     if (isChangeThemeAction(action)) {
         const theme = (action.payload as ChangeSettingsPayload).value as Theme
 

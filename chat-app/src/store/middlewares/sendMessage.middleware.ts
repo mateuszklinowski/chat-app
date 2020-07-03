@@ -6,9 +6,7 @@ import { ApiActions, SOCKET_ENDPOINT } from '../../const'
 
 const isSendMessageAction = (action: Action) => action.type === SEND_MESSAGE
 
-export const sendMessageMiddleware: Middleware = (state) => (next) => (
-    action
-) => {
+export const sendMessageMiddleware: Middleware = () => (next) => (action) => {
     if (isSendMessageAction(action)) {
         const socket = socketIOClient(SOCKET_ENDPOINT)
         socket.emit(ApiActions.SendMessage, action.payload)
