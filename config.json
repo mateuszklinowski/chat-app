@@ -1,5 +1,5 @@
 {
   "port": 10410,
   "api": "http://localhost",
-  "chat-entry": "chat-app/dist/index.html"
+  "staticDir": "chat-app/dist/"
 }
