@@ -7,6 +7,7 @@ import {
     ChangeSettingsPayload,
     RESET_SETTINGS,
 } from '../actions/settingsActions'
+import { saveSettingsToStorage } from '../../utils/localStorage/saveSettingsToStorage'
 
 export const initialState: SettingsState = {
     ...defaultSettingsState,
@@ -26,10 +27,13 @@ export const settingsReducer: Reducer<SettingsState, Action> = (
             return defaultSettingsState
         case CHANGE_SETTINGS: {
             const payload = action.payload as ChangeSettingsPayload
-            return {
+            const newSettingsState = {
                 ...state,
                 [payload.key]: payload.value,
             }
+            saveSettingsToStorage(newSettingsState)
+
+            return newSettingsState
         }
         default:
             return state

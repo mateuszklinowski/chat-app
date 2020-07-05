@@ -17,6 +17,8 @@
 - [x] Clock display
 - [x] ctrl+enter send
 - [x] Internationalization
+- [x] save and load from LocalStorage
+
 
 ## General
 - [x] Use React
