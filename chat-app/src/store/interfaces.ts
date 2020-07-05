@@ -10,6 +10,7 @@ export type Message = {
 
 export type ChatState = {
     messages: Message[]
+    unread: number
 }
 
 export type SettingsState = {

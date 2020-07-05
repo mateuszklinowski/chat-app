@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Message } from '../../store/interfaces'
 import { MessageComponent } from './message'
 import styles from './message.module.scss'
@@ -8,10 +8,16 @@ export type MessagesProps = {
     messages: Message[]
     clock: ClockDisplay
     userId: string
+    onMount(): void
 }
 
 export const Messages: React.FunctionComponent<MessagesProps> = (props) => {
-    const { messages, clock, userId } = props
+    const { messages, clock, userId, onMount } = props
+
+    useEffect(() => {
+        onMount()
+    }, [])
+
     return (
         <section className="box section section--main">
             <div className={styles.messagesWrapper}>

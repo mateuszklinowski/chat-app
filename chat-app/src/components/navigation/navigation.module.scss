@@ -7,8 +7,18 @@
         line-height: $sectionHeight;
         font-weight: bold;
         margin: 0 1em;
+        position: relative;
     }
 }
+
+.unread {
+    position: absolute;
+    top:-5px;
+    right:-10px;
+    line-height: 10px;
+    color: var(--alert)
+}
+
 .active {
     border-bottom: 2px solid var(--dark);
 }

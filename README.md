@@ -6,7 +6,7 @@
 - [x] Implement chat functions
 - [x] Blinking tab for unread messages
 - [x] Smiles support
-- [ ] Unread messages count
+- [x] Unread messages count
 - [x] YouTube links parser
 - [ ] Images links parser
 - [x] Other links parser
@@ -25,7 +25,7 @@
 - [x] Responsive design
 - [x] Modern browser support
 - [x] NOT USE tool like create-react-app
-- [x] Sample tests - component and unit
+- [ ] Sample tests - component and unit
 - [x] Clean, commented, small and modularized code - hope I did :D
 - [x] Working code - docker.mateuszklinowski.pl
 - [x] README.md
