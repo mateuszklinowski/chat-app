@@ -21,11 +21,11 @@ export const Messages: React.FunctionComponent<MessagesProps> = (props) => {
     return (
         <section className="box section section--main">
             <div className={styles.messagesWrapper}>
-                {messages.map((msg) => (
+                {messages.map((msg, idx) => (
                     <MessageComponent
                         message={msg}
                         fromSelf={msg.senderId === userId}
-                        key={msg.id}
+                        key={idx}
                         clock={clock}
                     />
                 ))}

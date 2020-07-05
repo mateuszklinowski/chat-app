@@ -11,7 +11,6 @@ const server = () => {
     app.use('/', express.static(path.join(`${__dirname}/../chat-app/dist`)))
 
     app.get('/*', (req, res) => {
-        console.log(__dirname)
         res.sendFile(path.join(`${__dirname}/../chat-app/dist/index.html`))
     })
 

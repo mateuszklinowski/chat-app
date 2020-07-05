@@ -5,11 +5,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { sendMessageMiddleware } from './middlewares/sendMessage.middleware'
 import { notificationMiddleware } from './middlewares/notification.middleware'
 
+export const middlewares = [sendMessageMiddleware, notificationMiddleware()]
+
 export const configureStore = (): Store<State> => {
-    const middlewares = [
-        sendMessageMiddleware,
-        notificationMiddleware(),
-    ]
     const middlewareEnhancer = applyMiddleware(...middlewares)
     const composedEnhancers = composeWithDevTools(middlewareEnhancer)
 

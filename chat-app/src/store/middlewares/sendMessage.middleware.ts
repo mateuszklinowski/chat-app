@@ -1,14 +1,14 @@
 import { Middleware } from 'redux'
 import { Action } from '../interfaces'
 import { SEND_MESSAGE } from '../actions/chatActions'
-import socketIOClient from 'socket.io-client'
-import { ApiActions, SOCKET_ENDPOINT } from '../../const'
+import { ApiActions } from '../../const'
+import { getSocketIOClient } from '../../utils/getSocket'
 
 const isSendMessageAction = (action: Action) => action.type === SEND_MESSAGE
 
 export const sendMessageMiddleware: Middleware = () => (next) => (action) => {
     if (isSendMessageAction(action)) {
-        const socket = socketIOClient(SOCKET_ENDPOINT)
+        const socket = getSocketIOClient()
         socket.emit(ApiActions.SendMessage, action.payload)
     }
 

@@ -1,18 +1,18 @@
 import React, { useEffect, useRef } from 'react'
-import socketIOClient from 'socket.io-client'
-import { ApiEvents, Path, SOCKET_ENDPOINT } from '../../const'
+import { ApiEvents, Path } from '../../const'
 import { useLocation } from 'react-router-dom'
 import { MessageWithContext } from '../../store/actions/chatActions'
 import { Message } from '../../store/interfaces'
+import { getSocketIOClient } from '../../utils/getSocket'
 
 export interface ChatProps {
     userId: string | undefined
     onNewMessage(msg: MessageWithContext): void
     onUserId(userId: string): void
 }
-const socket = socketIOClient(SOCKET_ENDPOINT)
 export const Chat: React.FunctionComponent<ChatProps> = (props) => {
     const { pathname } = useLocation()
+    const socket = getSocketIOClient()
     const { userId, onNewMessage, onUserId, children } = props
     const isMessageVisible = (): boolean => pathname === Path.Home
     const isRead = useRef<boolean>(isMessageVisible())
