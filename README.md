@@ -1,4 +1,36 @@
-### Features
+### Chat app base on React and simple WS service
+
+
+Comments in form of a  dialog with the reviewers not as a code documentation.
+Some features like: internationalization are implemented by hand,
+just to practice basic concepts on the occasion of technical task.
+
+
+In case any help or questions appear my email address:
+klinowski.mateusz@gmail.com
+do not hesitate to send a message
+
+### How to start development build
+
+* Clone this repo
+* Install chat-app and chat-server dependencies
+    * `npm install` in chat-app directory
+    * `npm install` in chat-server directory
+* start nodeJS WS server
+    * navigate to chat-server
+    * `node app.js`
+    * keep it running
+* start front-end application
+    * navigate to chat-app directory
+    *`npm run dev` will start dev server 
+
+# Config
+
+In `config.json` file You can specify port that will be used for serving WS.
+Front-end assumes that backend will be available on http://localhost,
+ if configurated differently pleas change `api` key in `config.json`.
+
+### Features implemented
 
 ## Chat page
 - [x] Create chat page
