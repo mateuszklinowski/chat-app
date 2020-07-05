@@ -40,3 +40,7 @@ $box-Y-padding: 0.5em;
         );
     }
 }
+
+@mixin transition {
+    transition: all 0.2s ease;
+}

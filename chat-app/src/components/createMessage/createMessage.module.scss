@@ -1,4 +1,5 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 .wrapper {
     display: flex;
@@ -10,14 +11,14 @@
 
 .sendBtn {
     @include button();
-    height: 40px;
+    height: $sectionHeight;
     padding: 0 1em;
     flex: 0 0 calc(40px + 2em);
 
     svg {
         width: 100%;
         height: 100%;
-        fill: var(--dark)
+        fill: var(--dark);
     }
 
     &:focus {

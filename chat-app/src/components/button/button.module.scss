@@ -1,4 +1,5 @@
 @import 'src/styles/mixins';
+@import 'src/styles/variables';
 
 .button {
     @include border-box();
@@ -6,8 +7,8 @@
     color: var(--dark);
     width: 100%;
     font-weight: bold;
-    transition: all 0.2s ease;
-    min-height: 40px;
+    @include transition();
+    min-height: $sectionHeight;
 
     &:hover {
         color: var(--light);

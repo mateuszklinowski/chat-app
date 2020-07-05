@@ -19,10 +19,12 @@ do not hesitate to send a message
 * start nodeJS WS server
     * navigate to chat-server
     * `node app.js`
-    * keep it running
+    * keep it running (by default on port 10410)
 * start front-end application
     * navigate to chat-app directory
     *`npm run dev` will start dev server 
+    
+* npm run test - starts test runner in watch mode
 
 # Config
 

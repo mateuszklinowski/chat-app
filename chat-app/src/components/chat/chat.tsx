@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { MessageWithContext } from '../../store/actions/chatActions'
 import { Message } from '../../store/interfaces'
 import { getSocketIOClient } from '../../utils/getSocket'
+import { Loader } from '../loader/Loader'
 
 export interface ChatProps {
     userId: string | undefined
@@ -35,7 +36,7 @@ export const Chat: React.FunctionComponent<ChatProps> = (props) => {
     }, [pathname])
 
     if (userId === undefined) {
-        return <h1>Loading</h1>
+        return <Loader />
     }
 
     return <>{children}</>
